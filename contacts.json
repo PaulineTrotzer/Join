@@ -1,0 +1,82 @@
+[
+  {
+    "ID": 1,
+    "name": "Antonia Zimmermann",
+    "firstName": "Antonia",
+    "lastName": "Zimmermann",
+    "acronymContact": "AZ",
+    "colorContact": "#FF7A00",
+    "emailContact": "antonia.zimmermann@gmail.com",
+    "phoneContact": "+49 111 111 111"
+  },
+  {
+    "ID": 2,
+    "name": "Anja Schulz",
+    "firstName": "Anja",
+    "lastName": "Schulz",
+    "acronymContact": "AS",
+    "colorContact": "#FF5EB3",
+    "emailContact": "schulz@gmail.com",
+    "phoneContact": "+49 111 111 111"
+  },
+  {
+    "ID": 3,
+    "name": "Benedikt Ziegler",
+    "firstName": "Benedikt",
+    "lastName": "Ziegler",
+    "acronymContact": "BZ",
+    "colorContact": "#6E52FF",
+    "emailContact": "benedikt@gmail.com",
+    "phoneContact": "+49 111 111 111"
+  },
+  {
+    "ID": 4,
+    "name": "Carmen Gutmann",
+    "firstName": "Carmen",
+    "lastName": "Gutmann",
+    "acronymContact": "CG",
+    "colorContact": "#9327FF",
+    "emailContact": "carmen@hotmail.com",
+    "phoneContact": "+49 111 111 111"
+  },
+  {
+    "ID": 5,
+    "name": "Miriam Müller",
+    "firstName": "Miriam",
+    "lastName": "Müller",
+    "acronymContact": "MM",
+    "colorContact": "#00BEE8",
+    "emailContact": "miri@hotmail.com",
+    "phoneContact": "+49 111 111 111"
+  },
+  {
+    "ID": 6,
+    "name": "Emmanuel Mauer",
+    "firstName": "Emmanuel",
+    "lastName": "Mauer",
+    "acronymContact": "EM",
+    "colorContact": "#1FD7C1",
+    "emailContact": "mauer@gmail.com",
+    "phoneContact": "+49 111 111 111"
+  },
+  {
+    "ID": 7,
+    "name": "Marcel Bauer",
+    "firstName": "Marcel",
+    "lastName": "Bauer",
+    "acronymContact": "MB",
+    "colorContact": "#FF745E",
+    "emailContact": "mb@hotmail.com",
+    "phoneContact": "+49 111 111 111"
+  },
+  {
+    "ID": 8,
+    "name": "Anton Mayer",
+    "firstName": "Anton",
+    "lastName": "Mayer",
+    "acronymContact": "AM",
+    "colorContact": "#FC71FF",
+    "emailContact": "mayera@gmail.com",
+    "phoneContact": "+49 111 111 111"
+  }
+]

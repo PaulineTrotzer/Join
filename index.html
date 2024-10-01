@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log in</title>
+  <link rel="icon" type="image/x-icon" href="./assets/img/logo_dark.svg" />
+
+  <link rel="stylesheet" href="./css/font.css" />
+  <link rel="stylesheet" href="./css/logInsheet.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./css/animation.css">
+  <link rel="stylesheet" href="./css/contact.css">
+  
+
+  <script src="./js/storage.js" defer></script>
+  <script src="./js/login.js" defer></script>
+  <script src="./js/signUp.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="./js/template.js" defer></script>
+  <script src="./js/summary.js" defer></script>
+  <script src="./js/contact.js" defer></script>
+  <script src="./js/contactDetail.js" defer></script>
+</head>
+
+<body onload="checkIfforwardingSignUp(); LoginInit(); checkIfRememberedData()";>
+
+  <div class="wrapper">
+    <img id="logo-login" class="logo-login" src="./assets/img/logo_dark.svg">
+    <div id="start-animations-helper" class="start-animations-helper"></div>
+    <img id="logo-light" class="logo-light" src="./assets/img/logo_light.svg"/>
+    <div id="start-animations-helper-responsive" class="start-animations-helper-responsive"></div>
+    <div class="header-login">
+      <div id="ctn-no-user" class="ctn-no-user">
+        <span class="span-no-user">Not a Join user?</span>
+        <a class="btn-db" href="./signUp.html">Sign up</a>
+      </div>
+
+    </div>
+
+    <form id="login-form" onsubmit="login(); return false;" class="ctn-login">
+      <h1 class="mt-48">Log in</h1>
+      <div class="sep-login"></div>
+      <div>
+        <input id="email" type="email" placeholder="Email" required oninput="disableLogInButton()" />
+        <img class="input-icon" src="./assets/img/mail.svg" />
+      </div>
+      <div>
+        <input id="password" type="password" placeholder="Password" required
+          oninput="disableLogInButton(); togglePasswordIcon('password', 'passwordIcon');" />
+        <img id="passwordIcon" class="input-icon" src="./assets/img/lock.svg"
+          onclick="showPassword('password', 'passwordIcon')" />
+      </div>
+      <div class="ctn-rem-me">
+        <input id="checkbox" class="checkbox" type="checkbox" />
+        <p>Remember me</p>
+      </div>
+
+      <div id="transp-overlay" class="transp-overlay d-none"></div>
+      <div id="msgBox" class="successfullyMessage d-none"></div>
+
+      <div class="ctn-btn-login">
+        <button id="LogInButton" class="logIn-button if-button-disabled" disabled="true" type="submit">Log in</button>
+        <button id="GuestLoginButton" onclick="useGuestLogIn()" class="btn-outline">Guest Log in</button>
+      </div>
+    </form>
+
+
+
+    <footer class="ft-login">
+      <div class="mobile-frame-signUp d-none">
+        <span class="span-no-user">Not a Join user?</span>
+        <a class="signUp-button" href="./signUp.html">Sign up</a>
+      </div>
+      <div class="links-footer">
+        <a class="links-in-footer" href="privacy.html">Privacy Policy</a>
+        <a class="links-in-footer" href="legal.html">Legal notice</a>
+      </div>
+    </footer>
+</body>
+
+</html>

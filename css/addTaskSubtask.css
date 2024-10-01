@@ -1,0 +1,173 @@
+.input-add-subtask {
+  outline: none;
+  border: 0px;
+}
+
+.input-add-subtask-layout {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input-subtask-btn-ctn {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 8px;
+  margin-right: 16px;
+  width: fit-content;
+  gap: 8px;
+  background: white;
+  width: 79px;
+  height: 41px;
+}
+
+.subtask-plus-btn {
+  height: 24px;
+  width: 24px;
+  border-radius: 100%;
+  background-image: url(../assets/img/plus_blue.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+.subtask-plus-btn:hover {
+  background-color: #eaeaea;
+  cursor: pointer;
+}
+
+.x-btn {
+  height: 24px;
+  width: 24px;
+  border-radius: 100%;
+  background-image: url(../assets/img/close_black.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+.x-btn:hover,
+.check-round-btn:hover {
+  background-color: #eaeaea;
+  cursor: pointer;
+}
+
+.check-round-btn {
+  height: 24px;
+  width: 24px;
+  border-radius: 100%;
+  background-image: url(../assets/img/check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding-right: 24px;
+}
+
+.check-sub-btn:hover {
+  background-color: #eaeaea;
+  cursor: pointer;
+}
+
+.check-square-btn {
+  height: 24px;
+  width: 24px;
+  background-image: url(../assets/img/check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0;
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid #caced1;
+  cursor: pointer;
+}
+
+.check-square-btn:hover {
+  cursor: pointer;
+}
+
+.small-divider {
+  height: 24px;
+  background-color: #caced1;
+  width: 1px;
+}
+
+.input-edit-subtask {
+  border: 0;
+  background-color: transparent;
+  margin-bottom: 0px !important;
+}
+
+.subtask-list {
+  margin-top: 8px;
+  height: 24px;
+  width: 440px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+.subtask-list:hover {
+  background-color: #eeeeee;
+  cursor: pointer;
+}
+
+.subtask-list-edit-mode {
+  background-color: white;
+  border-bottom: 2px solid #29abe2;
+  border-radius: 0px !important;
+  height: 20px !important;
+  margin-top: 8px;
+  height: 24px;
+  width: 440px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.subtask-icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 5;
+}
+
+.delete-btn {
+  background-image: url(../assets/img/delete_default.svg);
+  border: 0;
+  height: 24px;
+  width: 34px;
+  padding-right: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.delete-btn:hover,
+.confirm-btn:hover {
+  cursor: pointer;
+}
+
+.white-bg {
+  background-color: white !important;
+}
+
+.confirm-btn {
+  background-image: url(../assets/img/edit_default.svg);
+  border: 0;
+  height: 24px;
+  width: 34px;
+  padding-right: 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-left: 1px solid #caced1;
+  cursor: pointer;
+}

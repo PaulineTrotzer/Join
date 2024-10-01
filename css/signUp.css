@@ -1,0 +1,163 @@
+.wrapper {
+  position: relative;
+}
+
+.header-login {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  max-width: 1240px;
+}
+
+.logo-login-signUp {
+  position: fixed !important;
+  top: 80px !important;
+  left: 77px !important;
+  z-index: 999 !important;
+}
+
+.ctn-login {
+  border: unset !important;
+  border-radius: 24px !important;
+  background-color: #ffffff !important;
+  width: 50% !important;
+  min-width: 400px !important;
+  max-width: 540px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: relative !important;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04) !important;
+}
+
+.ctn-rem-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.arrow-sign-up {
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  top: 54px;
+  left: 40px;
+}
+
+.sep-login {
+  width: 120px;
+  height: 3px;
+  background-color: #29abe2;
+  margin-top: 8px;
+  margin-bottom: 32px;
+}
+
+.link-privacy {
+  color: #29abe2;
+}
+
+.ctn-btn-login {
+  margin-bottom: 24px;
+  display: flex;
+  gap: 24px;
+}
+
+.ft-login {
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #898c90;
+  font-size: 14px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.links-in-footer {
+  width: 104px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #898c90;
+}
+
+.links-in-footer:hover {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  color: #29abe2;
+}
+
+@media (max-width: 1130px) {
+  h1 {
+    font-size: 50px !important;
+  }
+
+  .mt-48 {
+    margin-top: 24px !important;
+  }
+
+  .ctn-login {
+    width: 50% !important;
+    height: 570px;
+    margin-top: 55px !important;
+  }
+
+  .ft-login {
+    margin-bottom: 10px;
+    margin-top: 0px;
+  }
+}
+
+
+@media (max-width: 775px) {
+  .logo-login-signUp {
+    top: 27px !important;
+    left: 38px !important;
+    width: 64px !important;
+  }
+
+  h1 {
+    font-size: 44px !important;
+  }
+  .ctn-login {
+    margin-top: 80px !important;
+  }
+
+  .ctn-btn-login {
+    margin-bottom: 0;
+  }
+
+  .btn-db:hover {
+    background-color: #2a3647 !important;
+    box-shadow: none !important;
+  }
+
+  .links-in-footer:hover {
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    color: #898c90 !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .inputSignUp {
+    font-size: 14px !important;
+    width: 200px !important;
+  }
+
+  input::placeholder {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .ctn-login {
+    min-width: 320px !important;
+  }
+
+  .arrow-sign-up {
+    left: 22px;
+  }
+}

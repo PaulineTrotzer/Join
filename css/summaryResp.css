@@ -1,0 +1,157 @@
+@media (max-width: 960px) {
+  .title_ctn {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .parting_line {
+    height: 3px;
+    width: 90px;
+    order: 1;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 910px) {
+  .summary_content_ctn h1 {
+    font-size: 47px;
+    font-weight: 600;
+  }
+
+  .todo_done_box {
+    width: 240px;
+  }
+
+  .urgent_date_ctn {
+    gap: 40px;
+  }
+
+  .task_progr_feedb_ctn {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 875px) {
+  .todo_done_box {
+    width: 208px;
+  }
+
+  .urgent_date_ctn {
+    gap: 28px;
+  }
+
+  .task_progr_feedb_box {
+    width: 140px;
+  }
+}
+
+@media (max-width: 785px) {
+  .summary_and_greeting_ctn {
+    margin-bottom: 112px;
+  }
+}
+
+@media (max-width: 510px) {
+  .icon-blue-pen,
+  .icon-blue-checkmark,
+  .summary-icon-priority {
+    width: 40px;
+    height: 40px;
+    background-size: 45%;
+  }
+
+  .summary-icon-priority img {
+    width: 20px;
+  }
+
+  .text-format-Summary-1 {
+    font-size: 16px;
+  }
+
+  .todo_done_box {
+    height: 144px;
+    width: 180px;
+  }
+
+  .urgent_date_ctn {
+    height: 144px;
+    gap: 18px;
+  }
+
+  .task_progr_feedb_box {
+    height: 144px;
+    width: 120px;
+  }
+}
+
+@media (max-width: 450px) {
+  .title_ctn {
+    margin-bottom: 32px;
+  }
+
+  .summary_content_ctn h1 {
+    font-size: 32px;
+  }
+
+  .text-format-Summary-1 {
+    font-size: 14px;
+  }
+
+  .text-format-Summary-2 {
+    font-size: 14px;
+  }
+
+  .text-format-Summary-3 {
+    font-size: 16px;
+  }
+
+  .date_content {
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .todo_done_box {
+    height: 132px;
+    width: 156px;
+  }
+
+  .urgent_date_ctn {
+    height: 132px;
+  }
+
+  .task_progr_feedb_box {
+    height: 132px;
+    width: 104px;
+  }
+
+  .parting_line_grey {
+    height: 80px;
+  }
+}
+
+@media (max-width: 375px) {
+  .second_titlefont {
+    font-size: 24px;
+  }
+
+  .todo_done_box {
+    height: 124px;
+    width: 132px;
+    gap: 14px;
+  }
+
+  .urgent_date_ctn {
+    height: 124px;
+    gap: 10px;
+  }
+
+  .urgent_content {
+    gap: 10px;
+  }
+
+  .task_progr_feedb_box {
+    height: 124px;
+    width: 88px;
+  }
+}

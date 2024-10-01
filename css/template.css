@@ -1,0 +1,252 @@
+header {
+  height: 96px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding-left: var(--margin-left-content);
+  padding-right: var(--margin-right-content);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+header span {
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.logo-header {
+  width: 32px;
+  display: none;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ctn-icon-help-header {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-help-header {
+  height: 20px;
+  width: 20px;
+}
+
+.icon-help-header:hover {
+  height: 24px;
+  width: 24px;
+}
+
+.icon-user-header {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: #29abe2;
+  background-color: white;
+  border-radius: 50%;
+  border: solid 3px #2a3647;
+}
+
+.icon-user-header:hover {
+  background-color: #0c2e621f;
+}
+
+.submenu-header {
+  position: fixed;
+  z-index: 10;
+  top: var(--height-header);
+  right: var(--margin-right-content);
+  display: flex;
+  flex-direction: column;
+  background-color: #2a3647;
+  padding: 10px;
+  gap: 8px;
+  border-radius: 20px 0 20px 20px;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+}
+
+.submenu-header a {
+  text-decoration: none;
+  color: #cdcdcd;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.submenu-header a:hover {
+  cursor: pointer;
+  background-color: #2a3d59;
+  transform: translateX(1px);
+  transition: 75ms;
+}
+
+.overlay-submenu {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  color: #cdcdcd;
+  padding: 8px 56px;
+  gap: 8px;
+}
+
+nav a:hover {
+  background-color: #2a3d59;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.tab-selected {
+  background-color: #091931;
+  color: white;
+}
+
+.sidebar {
+  width: 232px;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  background-color: #2a3647;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+}
+
+.logo-sidebar {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+  margin-bottom: 96px;
+}
+
+.ctn-sidebar-legal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: absolute;
+  bottom: 38px;
+}
+
+.ctn-sidebar-legal a {
+  color: #a8a8a8;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 192px;
+  height: 40px;
+  padding-left: 40px;
+}
+
+.ctn-sidebar-legal a:hover {
+  color: #29abe2;
+  font-weight: bold;
+}
+
+.ctn-content {
+  position: absolute;
+  top: var(--margin-top-content);
+  left: var(--margin-left-content);
+  right: 0;
+  margin-right: var(--margin-right-content);
+}
+
+/* **** RESPONSIVE DESIGN **** */
+
+@media (max-width: 784px) {
+  header {
+    height: 80px !important;
+  }
+
+  header span {
+    display: none;
+  }
+
+  .icon-help-header {
+    display: none;
+  }
+
+  .icon-user-header {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: var(--height-footer);
+    top: unset;
+    bottom: 0;
+    right: 0;
+  }
+
+  .logo-sidebar {
+    display: none;
+  }
+
+  nav {
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: unset;
+  }
+
+  nav a {
+    flex-direction: column;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 16px;
+    gap: 4px;
+  }
+
+  .ctn-sidebar-legal {
+    display: none;
+  }
+
+  .logo-header {
+    display: flex;
+  }
+}
+
+@media (max-width: 350px) {
+  nav a {
+    font-size: 13px;
+  }
+}

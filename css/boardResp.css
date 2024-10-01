@@ -1,0 +1,160 @@
+@media (max-width: 1270px) {
+  .headline-board {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .preview-drop-task {
+    border: 1px dashed #000; 
+    height: 250px !important;
+    width: 235px !important;
+  }
+
+  .ctn-board {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .ctn-board-status {
+    min-width: unset;
+    max-width: unset;
+  }
+
+  .ctn-board-status-bottom {
+    padding-bottom: 40px;
+  }
+
+  .ctn-tasks {
+    flex-direction: row;
+    align-items: flex-start;
+    overflow-x: auto;
+    padding-bottom: 16px;
+  }
+
+  .card-task-small {
+    min-width: 176px;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .headline-board {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 920px) {
+  .btn-add-task-db {
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 0;
+    padding: 3px !important;
+  }
+
+  .btn-add-task-db span {
+    display: none;
+  }
+}
+
+@media (max-width: 784px) {
+  .ctn-board-status:last-child {
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 650px) {
+  .form-edit-task-board input {
+    font-size: 16px;
+  }
+
+  .form-edit-task-board textarea {
+    font-size: 16px;
+  }
+
+  .ctn-task-detail {
+    width: 80%;
+    min-width: 256px;
+    font-size: 16px;
+    padding: 32px 24px;
+    gap: 16px;
+  }
+
+  .task-detail-category {
+    font-size: 16px;
+    padding: 4px 16px;
+  }
+
+  .ctn-task-detail h1 {
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  .ctn-task-detail-date span,
+  .ctn-task-detail-priority span {
+    width: 112px;
+  }
+
+  .btn-edit-prio {
+    font-size: 16px !important;
+  }
+
+  .task-detail-assigned-user-name {
+    font-size: 16px;
+  }
+
+  .task-detail-checkbox {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .headline-status {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 530px) {
+  .ctn-board-status {
+    min-width: 230px;
+  }
+}
+
+@media (max-width: 490px) {
+  .input-search-task {
+    width: 240px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .ctn-edit-task-prio-btn {
+    flex-direction: column;
+  }
+
+  .btn-edit-prio {
+    width: unset !important;
+    height: 48px !important;
+  }
+}
+
+@media (max-width: 370px) {
+  .input-search-task {
+    width: 188px !important;
+  }
+
+  .ctn-board-status {
+    min-width: 200px;
+  }
+
+  .ctn-task-detail {
+    width: 84%;
+    padding: 24px 16px;
+}
+
+.edit-task-search-user {
+  max-width: 180px;
+}
+}

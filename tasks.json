@@ -1,0 +1,253 @@
+[
+  {
+    "idTask": "task-1",
+    "titleTask": "Kochwelt Page & Recipe Recommender",
+    "descriptionTask": "Build start page with recipe recommendation.",
+    "assignedContacts": [
+      {
+        "idContact": 1
+      },
+      {
+        "idContact": 8
+      },
+      {
+        "idContact": 7
+      }
+    ],
+    "dueDate": "2024-08-10T20:15:00.000Z",
+    "priority": "Medium",
+    "category": "User Story",
+    "subtasks": [
+      {
+        "idSubtask": 1,
+        "titleSubtask": "Implement Recipe Recommendation",
+        "statusSubtask": "closed"
+      },
+      {
+        "idSubtask": 2,
+        "titleSubtask": "Start Page Layout",
+        "statusSubtask": "open"
+      }
+    ],
+    "statusTask": "toDo"
+  },
+  {
+    "idTask": "task-2",
+    "titleTask": "CSS Architecture Planning",
+    "descriptionTask": "Define CSS naming conventions and structure.",
+    "assignedContacts": [
+      {
+        "idContact": 8
+      },
+      {
+        "idContact": 1
+      },
+      {
+        "idContact": 5
+      },
+      {
+        "idContact": 6
+      },
+      {
+        "idContact": 1708513544186
+      },
+      {
+        "idContact": 7
+      }
+    ],
+    "dueDate": "2024-09-02T20:15:00.000Z",
+    "priority": "Urgent",
+    "category": "Technical Task",
+    "subtasks": [
+      {
+        "idSubtask": 1,
+        "titleSubtask": "Establish CSS Methology",
+        "statusSubtask": "closed"
+      },
+      {
+        "idSubtask": 2,
+        "titleSubtask": "Setup Base Styles",
+        "statusSubtask": "closed"
+      }
+    ],
+    "statusTask": "done"
+  },
+  {
+    "idTask": "task-6",
+    "titleTask": "Planning JOIN-Project",
+    "descriptionTask": "Analyse structur of the project, detect interdependencies and define responsibilities",
+    "assignedContacts": [
+      {
+        "idContact": 1
+      },
+      {
+        "idContact": 5
+      },
+      {
+        "idContact": 7
+      }
+    ],
+    "dueDate": "2024-04-12T10:30:00.000Z",
+    "priority": "Urgent",
+    "category": "Technical Task",
+    "subtasks": [
+      {
+        "idSubtask": 1,
+        "titleSubtask": "Analyse structure",
+        "statusSubtask": "closed"
+      },
+      {
+        "idSubtask": 2,
+        "titleSubtask": "Visualize interdependencies in Miro",
+        "statusSubtask": "closed"
+      },
+      {
+        "idSubtask": 3,
+        "titleSubtask": "Define responsibilities",
+        "statusSubtask": "closed"
+      }
+    ],
+    "statusTask": "awaitFeedback"
+  },
+  {
+    "idTask": "task-7",
+    "titleTask": "Revision of UX/UI-Design",
+    "descriptionTask": "Check whether elements can be adjusted to guarantee a better user experience",
+    "assignedContacts": [
+      {
+        "idContact": 1
+      },
+      {
+        "idContact": 7
+      },
+      {
+        "idContact": 5
+      }
+    ],
+    "dueDate": "2024-05-20T14:40:00.000Z",
+    "priority": "Low",
+    "category": "User Story",
+    "subtasks": [
+      {
+        "idSubtask": 1,
+        "titleSubtask": "Identify elements",
+        "statusSubtask": "closed"
+      },
+      {
+        "idSubtask": 2,
+        "titleSubtask": "Formulate and discuss suggestions",
+        "statusSubtask": "closed"
+      },
+      {
+        "idSubtask": 3,
+        "titleSubtask": "Realization of agreed adjustments",
+        "statusSubtask": "open"
+      },
+      {
+        "idSubtask": 4,
+        "titleSubtask": "A/B-Testing",
+        "statusSubtask": "open"
+      },
+      {
+        "idSubtask": 5,
+        "titleSubtask": "Implentation of changes for everone",
+        "statusSubtask": "open"
+      }
+    ],
+    "statusTask": "toDo"
+  },
+  {
+    "idTask": "task-8",
+    "titleTask": "Testing JOIN-Project (completeness)",
+    "descriptionTask": "Check whether all points from the checklist were accomplished.",
+    "assignedContacts": [
+      {
+        "idContact": 1
+      },
+      {
+        "idContact": 8
+      },
+      {
+        "idContact": 6
+      }
+    ],
+    "dueDate": "2024-04-22T09:25:00.000Z",
+    "priority": "Urgent",
+    "category": "Technical Task",
+    "subtasks": [
+      {
+        "idSubtask": 1,
+        "titleSubtask": "Check User/ Login",
+        "statusSubtask": "open"
+      },
+      {
+        "idSubtask": 2,
+        "titleSubtask": "Check Summary",
+        "statusSubtask": "open"
+      },
+      {
+        "idSubtask": 3,
+        "titleSubtask": "Check AddTask",
+        "statusSubtask": "open"
+      },
+      {
+        "idSubtask": 4,
+        "titleSubtask": "Check Board",
+        "statusSubtask": "open"
+      },
+      {
+        "idSubtask": 5,
+        "titleSubtask": "Check Contacts",
+        "statusSubtask": "open"
+      },
+      {
+        "idSubtask": 6,
+        "titleSubtask": "Check legal pages/ help",
+        "statusSubtask": "open"
+      }
+    ],
+    "statusTask": "inProgress"
+  },
+  {
+    "idTask": "task-9",
+    "titleTask": "Testing JOIN-Project (compatibility)",
+    "descriptionTask": "Check appearance and whether all features work in the established browsers",
+    "assignedContacts": [
+      {
+        "idContact": 1
+      },
+      {
+        "idContact": 5
+      },
+      {
+        "idContact": 7
+      }
+    ],
+    "dueDate": "2024-03-26T09:25:00.000Z",
+    "priority": "Medium",
+    "category": "Technical Task",
+    "subtasks": [
+      {
+        "idSubtask": 1,
+        "titleSubtask": "Testing Chrome",
+        "statusSubtask": "open"
+      },
+      {
+        "idSubtask": 2,
+        "titleSubtask": "Testing Firefox",
+        "statusSubtask": "open"
+      },
+      {
+        "idSubtask": 3,
+        "titleSubtask": "Testing Safari",
+        "statusSubtask": "open"
+      },
+      {
+        "idSubtask": 4,
+        "titleSubtask": "Testing IE/ Edge",
+        "statusSubtask": "open"
+      }
+    ],
+    "statusTask": "toDo"
+  }
+]

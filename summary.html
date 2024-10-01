@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summary</title>
+  <link rel="icon" type="image/x-icon" href="./assets/img/logo_dark.svg" />
+
+  <link rel="stylesheet" href="./css/font.css" />
+  <link rel="stylesheet" href="./css/template.css" />
+  <link rel="stylesheet" href="./css/summary.css" />
+  <link rel="stylesheet" href="./css/summaryResp.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./css/contactResp.css">
+  <link rel="stylesheet" href="./css/contact.css">
+
+  <script src="script.js" defer></script>
+  <script src="./js/summary.js" defer></script>
+  <script src="./js/signUp.js" defer></script>
+  <script src="./js/storage.js" defer></script>
+  <script src="./js/template.js" defer></script>
+  <script src="./js/login.js" defer></script>
+  <script src="./js/board.js" defer></script>
+  <script src="./js/contact.js" defer></script>
+  <script src="./js/contactDetail.js" defer></script>
+  <script src="./js/contactHTML.js" defer></script>
+  <script src="colors.js" defer></script>
+</head>
+
+
+
+<body id="body-summary" onload="initSummary()">
+
+<div class="landscape-msg">Please rotate your device to portrait mode<br> for better user experience.</div>
+
+  <header w3-include-html="./assets/templates/header.html"></header>
+  <div w3-include-html="./assets/templates/submenu.html"></div>
+  <div id="sidebar" class="sidebar" w3-include-html="./assets/templates/sidebarFooter.html"></div>
+
+  <div class="ctn-content">
+
+    <div class="title_ctn d-none" id="title_ctn">
+      <h1>Join 360</h1>
+      <div class="parting_line"></div>
+      <span class="second_titlefont">Key Metrics at a Glance</span>
+    </div>
+
+    <div class="summary_and_greeting_ctn">
+      <div class="summary_content_ctn d-none" id="summary_content_ctn">
+
+        <div class="todo_done_ctn">
+
+          <div class="todo_done_box" onclick="location.href='board.html';">
+            <div class="icon-blue-pen">
+            </div>
+            <div class="number-and-txt-box">
+              <h1 id="summary-tasks-toDo">1</h1>
+              <span class="text-format-Summary-1">To-Do</span>
+            </div>
+          </div>
+
+          <div class="todo_done_box" onclick="location.href='board.html';">
+            <div class="icon-blue-checkmark">
+            </div>
+            <div class="number-and-txt-box">
+              <h1 id="summary-tasks-done">1</h1>
+              <span class="text-format-Summary-1">Done</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="urgent_date_ctn" onclick="location.href='board.html';">
+
+          <div class="urgent_content">
+            <div class="summary-icon-priority" id="summary-icon-priority">
+              <img id="summary-img-priority" src="./assets/img/prio_urgent_white.svg" alt="...">
+            </div>
+            <div class="number-and-txt-box">
+              <h1 id="summary-number-upcoming-task">1</h1>
+              <span class="text-format-Summary-2" id="summary-priority-upcoming-task">Urgent</span>
+            </div>
+          </div>
+          <div class="parting_line_grey"></div>
+          <div class="date_content">
+            <span class="text-format-Summary-3" id="summary-date-upcoming-task">October 16, 2024</span>
+            <span>Upcoming deadline</span>
+          </div>
+        </div>
+
+        <div class="task_progr_feedb_ctn">
+          <div class="task_progr_feedb_box" onclick="location.href='board.html';">
+            <h1 id="summary-tasks-all">3</h1>
+            <span class="text-format-Summary-1">Tasks in<br>Board</span>
+          </div>
+          <div class="task_progr_feedb_box" onclick="location.href='board.html';">
+            <h1 id="summary-tasks-inProgress">2</h1>
+            <span class="text-format-Summary-1">Tasks in<br>Progress</span>
+          </div>
+          <div class="task_progr_feedb_box" onclick="location.href='board.html';">
+            <h1 id="summary-tasks-awaitFeedback">2</h1>
+            <span class="text-format-Summary-1">Awaiting<br>Feedback</span>
+          </div>
+        </div>
+      </div>
+      <div class="greeting_and_name_ctn d-none" id="greeting_and_name_ctn">
+        <div class="greeting_and_name_content">
+          <span id="greetingText" class="greeting-txt-format"></span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+
+</body>
+
+</html>

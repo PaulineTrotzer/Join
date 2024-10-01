@@ -1,0 +1,191 @@
+<div class="ctn-task-detail-header">
+  <h1>Add Task</h1>
+  <div class="ctn-task-detail-close" onclick="closeAddTaskBoard()">
+    <img class="task-detail-close" src="./assets/img/close_black.svg" />
+  </div>
+</div>
+
+<form
+  id="Add-Task-Form"
+  class="form-layout"
+  onsubmit="submitTask('toDo'); return false;"
+>
+  <div class="add-task-wrapper-form-input">
+    <div class="add-task-left-column">
+      <div class="input_box_layout">
+        <div class="description-with-star">
+          <span class="add_task_txt_format">Title</span>
+          <p class="add_task_txt_format" style="color: #ff8190">*</p>
+        </div>
+        <input
+          class="input-add-task"
+          id="task-input-title"
+          minlength="5"
+          required
+          type="text"
+          placeholder="Enter a title"
+          onkeyup="checkSubmission(event)"
+        />
+      </div>
+      <div class="input_box_layout">
+        <span class="add_task_txt_format">Description</span>
+        <textarea
+          class="input-add-task input-textarea"
+          id="task-input-description"
+          placeholder="Enter a description"
+        ></textarea>
+      </div>
+
+      <div class="input_box_layout no-margin-bottom">
+        <label class="add_task_txt_format">Assigned to</label>
+        <div class="pos-rel">
+          <div class="dropDownIcon"></div>
+          <input class="input-add-task" onclick="activateDropdown()" />
+          <div class="assignedContacts-open" id="assignedContactsCtn"></div>
+          <div id="checkedContactsCtn" class="checked-contacts-ctn"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="parting_line_grey"></div>
+
+    <div class="add-task-right-column">
+      <div class="input_box_layout">
+        <div class="description-with-star">
+          <span class="add_task_txt_format">Due date</span>
+          <p class="add_task_txt_format" ; style="color: #ff8190">*</p>
+        </div>
+        <input
+          id="task-input-dueDate"
+          class="input-add-task"
+          required
+          type="date"
+          placeholder="dd/mm/yyyy"
+          onkeyup="checkSubmission(event)"
+        />
+      </div>
+
+      <div id="transp-overlay" class="transp-overlay d-none"></div>
+      <div id="msgBox" class="d-none">
+        Task added to board<img
+          id="vectorboard-pic"
+          src="./assets/img/vectorboard.svg"
+        />
+      </div>
+
+      <div class="input_box_layout">
+        <span class="add_task_txt_format">Prio</span>
+        <div class="prio_box_layout">
+          <div
+            id="urgentButton"
+            class="prio-btn-neutral responsive-prio-btn"
+            onclick="changeButtonColorsUrgent()"
+          >
+            Urgent
+            <img
+              id="urgent-icon"
+              src="./assets/img/prio_alta2.svg"
+              class="urgent-icon"
+              alt="..."
+            />
+          </div>
+
+          <div
+            id="mediumButton"
+            class="medium-btn-yellow responsive-prio-btn"
+            onclick="changeButtonColorsMedium()"
+          >
+            Medium
+            <img
+              id="medium-icon"
+              src="./assets/img/capa_2.svg"
+              class="urgent-icon"
+              style="fill: #ffa800"
+            />
+          </div>
+
+          <div
+            id="lowButton"
+            class="prio-btn-neutral responsive-prio-btn"
+            onclick="changeButtonColorsLow()"
+          >
+            Low
+            <img
+              id="low-icon"
+              src="./assets/img/prio_baja.svg"
+              class="urgent-icon"
+              alt="..."
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="input_box_layout">
+        <div class="description-with-star">
+          <span class="add_task_txt_format">Category</span>
+          <p class="add_task_txt_format" ; style="color: #ff8190">*</p>
+        </div>
+        <div class="custom-select">
+          <select
+            id="selectCategory"
+            class="select.dropdown_list"
+            onchange="setCategory()"
+            required
+          >
+            <option value="" disabled selected>Select task category</option>
+            <option value="Technical Task">Technical Task</option>
+            <option value="User Story">User Story</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input_box_layout responsive-heigth">
+        <span class="add_task_txt_format">Subtasks</span>
+        <div class="input-add-subtask-layout">
+          <input
+            class="input-add-task"
+            id="subtaskInput"
+            minlength="2"
+            placeholder="Enter a title"
+            onkeyup="checkInputSubtask(event)"
+            onclick="changeInputSubtaskButtons()"
+          />
+          <div id="input-subtask-btn-ctn" class="input-subtask-btn-ctn">
+            <button
+              type="button"
+              id="plus-btn"
+              class="subtask-plus-btn"
+              onclick="changeInputSubtaskButtons()"
+            ></button>
+          </div>
+        </div>
+        <div class="added-subtask-responsive" id="added-subtask-ctn"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-section-ctn">
+    <div class="description-with-star">
+      <p class="required_txt_format" style="color: #ff8190">*</p>
+      <span class="required_txt_format">This field is required</span>
+    </div>
+    <div class="clear_create_btn_ctn">
+      <button
+        id="clear-btn"
+        class="clear-btn"
+        type="button"
+        onclick="clearForm()"
+      >
+        <span>Clear</span>
+        <img
+          src="./assets/img/close_blue.svg"
+          class="create-task-btn-checkmark hover-icon"
+        />
+      </button>
+      <button id="submit-btn" type="submit" class="create-task-btn">
+        <span>Create Task</span>
+        <img src="./assets/img/vector.svg" class="create-task-btn-checkmark" />
+      </button>
+    </div>
+  </div>
+</form>

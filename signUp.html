@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo_dark.svg" />
+
+    <link rel="stylesheet" href="./css/font.css" />
+    <link rel="stylesheet" href="./css/signUp.css">
+    <link rel="stylesheet" href="style.css" />
+    <script src="colors.js" defer></script>
+    <script src="./js/contact.js" defer></script>
+    <script src="./js/signUp.js" defer></script>
+    <script src="./js/storage.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="./js/login.js" defer></script>
+    <script src="users.json" defer></script>
+    <script src="contacts.json" defer></script>
+    <script src="./js/contactDetail.js" defer></script>
+  </head>
+
+  <body onload="initSignUp()">
+   
+    <div class="wrapper">
+      <div class="header-login">
+        <img class="logo-login-signUp" src="./assets/img/logo_dark.svg" />
+      </div>
+
+      <form
+        name="signUpSheet"
+        onsubmit="createSignUpdata(); return false;"
+        class="ctn-login"
+      >
+        <a href="./index.html"
+          ><img class="arrow-sign-up" src="./assets/img/arrow-left-line.svg"
+        /></a>
+        <h1 class="mt-48">Sign up</h1>
+        <div class="sep-login"></div>
+        <div>
+          <input class="inputSignUp"
+            id="name"
+            minlength="2"
+            type="text"
+            placeholder="Name"
+            oninput="disableSignUpButton()"
+            required
+          />
+          <img class="input-icon" src="./assets/img/person.svg" />
+        </div>
+        <div>
+          <input class="inputSignUp"
+            id="email"
+            type="email"
+            placeholder="Email"
+            oninput="disableSignUpButton()"
+            required
+          />
+          <img class="input-icon" src="./assets/img/mail.svg" />
+        </div>
+        <div>
+          <input class="inputSignUp"
+            id="password"
+            type="password"
+            placeholder="Password"
+            oninput="togglePasswordIcon('password', 'passwordIcon'); disableSignUpButton()"
+            required
+          />
+          <img
+            id="passwordIcon"
+            class="input-icon"
+            src="./assets/img/lock.svg"
+            onclick="showPassword('password', 'passwordIcon')"
+          />
+        </div>
+        <div>
+          <input class="inputSignUp"
+            id="confirmedPassword"
+            type="password"
+            placeholder="Confirm Password"
+            oninput="togglePasswordIcon('confirmedPassword', 'confirmedPasswordIcon'); disableSignUpButton()"
+            required
+          />
+          <img
+            id="confirmedPasswordIcon"
+            class="input-icon"
+            src="./assets/img/lock.svg"
+            onclick="showPassword('confirmedPassword', 'confirmedPasswordIcon')"
+          />
+        </div>
+        <div class="ctn-rem-me">
+          <input
+            id="checkbox"
+            class="checkbox"
+            type="checkbox"
+            onchange="disableSignUpButton()"
+            required
+          />
+          <p>
+            I accept the
+            <a class="link-privacy" href="privacy.html">Privacy Policy</a>
+          </p>
+        </div>
+
+        <div class="ctn-btn-login">
+          <button
+            id="signUpButton"
+            class="if-button-disabled"
+            href="./index.html"
+            type="submit"
+            disabled="true"
+          >
+            Sign up
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <footer class="ft-login">
+      <a class="links-in-footer" href="privacy.html">Privacy Policy</a>
+      <a class="links-in-footer" href="legal.html">Legal notice</a>
+    </footer>
+  </body>
+</html>

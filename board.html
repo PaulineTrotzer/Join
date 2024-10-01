@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Board</title>
+  <link rel="icon" type="image/x-icon" href="./assets/img/logo_dark.svg" />
+
+    <link rel="stylesheet" href="./css/font.css" />
+    <link rel="stylesheet" href="./css/board.css" />
+    <link rel="stylesheet" href="./css/boardOverlay.css" />
+    <link rel="stylesheet" href="./css/boardResp.css" />
+    <link rel="stylesheet" href="./css/addTask.css" />
+    <link rel="stylesheet" href="./css/addTaskSubtask.css" />
+    <link rel="stylesheet" href="./css/addTaskResponsive.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+    <link rel="stylesheet" href="./css/template.css" />
+    <link rel="stylesheet" href="style.css" />
+
+  <script src="script.js" defer></script>
+  <script src="./js/board.js" defer></script>
+  <script src="./js/boardAddEditTask.js" defer></script>
+  <script src="./js/boardHTML.js" defer></script>
+  <script src="./js/boardNavigation.js" defer></script>
+  <script src="./js/summary.js" defer></script>
+  <script src="./js/contact.js" defer></script>
+  <script src="./js/contactDetail.js" defer></script>
+  <script src="./js/addTask.js" defer></script>
+  <script src="./js/addTask_subtasks.js" defer></script>
+  <script src="./js/addTaskTransferInput.js" defer></script>
+  <script src="./js/submitTasks.js" defer></script>
+  <script src="./js/addTaskHTML.js" defer></script>
+  <script src="./js/storage.js" defer></script>
+  <script src="./js/template.js" defer></script>
+</head>
+
+<body onload="initBoard()" id="body-board">
+  <div class="landscape-msg">
+    Please rotate your device to portrait mode<br />
+    for better user experience.
+  </div>
+
+  <header w3-include-html="./assets/templates/header.html"></header>
+  <div w3-include-html="./assets/templates/submenu.html"></div>
+  <div id="sidebar" class="sidebar" w3-include-html="./assets/templates/sidebarFooter.html"></div>
+
+  <div class="ctn-content">
+    <div class="headline-board">
+      <h1>Board</h1>
+      <div class="header-board-right">
+        <div class="ctn-search-task" id="ctn-search-task">
+          <input class="input-search-task" id="searchTask" onkeyup="searchTask()" placeholder="Find Task"
+            onfocus="changeBorderColorSearchTask('ctn-search-task', '#29ABE2')"
+            onblur="changeBorderColorSearchTask('ctn-search-task', '#a8a8a8')" />
+          <div class="search-task-right">
+            <img src="./assets/img/separator_grey.svg" />
+            <div class="ctn-search-task-icon">
+              <img src="./assets/img/search_db.svg" />
+            </div>
+          </div>
+        </div>
+        <div class="btn-db btn-add-task-db" onclick="openAddTaskBoard('toDo')">
+          <span>Add task</span>
+          <img class="icon-btn" src="./assets/img/add_white.svg" />
+        </div>
+      </div>
+    </div>
+    <div class="ctn-board-status-top mt-48 d-none" id="board-no-results">
+      No tasks found
+    </div>
+
+    <div class="ctn-board" id="ctn-board">
+      <div class="ctn-board-status">
+        <div class="ctn-board-status-top">
+          <span class="headline-status">To do</span>
+          <img id="icon-plus-square-toDo" onclick="openAddTaskBoard('toDo')" class="icon-plus-square"
+            src="./assets/img/plus_square_default.svg"
+            onmouseover="changeImgTo('icon-plus-square-toDo', 'plus_square_lb')"
+            onmouseout="changeImgTo('icon-plus-square-toDo', 'plus_square_default')" />
+        </div>
+        <div class="ctn-board-status-bottom" id="ctn-board-status-bottom-toDo"
+          ondragover="allowDropWithPreview(event, 'toDo')" ondrop="moveElementTo('toDo')"
+          ondragleave="hidePreview('toDo')">
+          <div class="empty-status" id="empty-tasks-toDo">No tasks To do</div>
+          <div class="ctn-tasks" id="tasks-toDo"></div>
+          <div class="preview-drop-task d-none" id="preview-drop-task-toDo"></div>
+        </div>
+      </div>
+      <div class="ctn-board-status">
+        <div class="ctn-board-status-top">
+          <span class="headline-status">In Progress</span>
+          <img id="icon-plus-square-inProgress" onclick="openAddTaskBoard('inProgress')" class="icon-plus-square"
+            src="./assets/img/plus_square_default.svg"
+            onmouseover="changeImgTo('icon-plus-square-inProgress', 'plus_square_lb')"
+            onmouseout="changeImgTo('icon-plus-square-inProgress', 'plus_square_default')" />
+        </div>
+
+        <div class="ctn-board-status-bottom" id="ctn-board-status-bottom-inProgress"
+          ondragover="allowDropWithPreview(event, 'inProgress')" ondrop="moveElementTo('inProgress')"
+          ondragleave="hidePreview('inProgress')">
+          <div class="empty-status d-none" id="empty-tasks-inProgress">
+            No tasks In Progress
+          </div>
+          <div class="ctn-tasks" id="tasks-inProgress"></div>
+          <div class="preview-drop-task d-none" id="preview-drop-task-inProgress"></div>
+        </div>
+      </div>
+
+      <div class="ctn-board-status">
+        <div class="ctn-board-status-top">
+          <span class="headline-status">Await Feedback</span>
+          <img id="icon-plus-square-awaitFeedback" onclick="openAddTaskBoard('awaitFeedback')" class="icon-plus-square"
+            src="./assets/img/plus_square_default.svg"
+            onmouseover="changeImgTo('icon-plus-square-awaitFeedback', 'plus_square_lb')"
+            onmouseout="changeImgTo('icon-plus-square-awaitFeedback', 'plus_square_default')" />
+        </div>
+        <div class="ctn-board-status-bottom" id="ctn-board-status-bottom-awaitFeedback"
+          ondragover="allowDropWithPreview(event, 'awaitFeedback')" ondrop="moveElementTo('awaitFeedback')"
+          ondragleave="hidePreview('awaitFeedback')">
+          <div class="empty-status d-none" id="empty-tasks-awaitFeedback">
+            No tasks Await Feedback
+          </div>
+          <div class="ctn-tasks" id="tasks-awaitFeedback"></div>
+          <div class="preview-drop-task d-none" id="preview-drop-task-awaitFeedback"></div>
+        </div>
+      </div>
+      <div class="ctn-board-status">
+        <div class="ctn-board-status-top">
+          <span class="headline-status">Done</span>
+        </div>
+        <div class="ctn-board-status-bottom" id="ctn-board-status-bottom-done"
+          ondragover="allowDropWithPreview(event, 'done')" ondrop="moveElementTo('done')"
+          ondragleave="hidePreview('done')">
+          <div class="empty-status" id="empty-tasks-done">No tasks Done</div>
+          <div class="ctn-tasks" id="tasks-done"></div>
+          <div class="preview-drop-task d-none" id="preview-drop-task-done"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay-board d-none" id="overlay-board" onclick="closeTaskDetails()"></div>
+
+  <div class="overlay-board d-none" id="overlay-board-submenu" onclick="closeSubmenuChangeStatusMobile()"></div>
+
+  <div class="overlay-board d-none" id="overlay-board-addTask" onclick="closeAddTaskBoard()">
+    <div class="wrapper-add-task-board" id="wrapper-add-task-board" onclick="stopPropagation(event)">
+      <div w3-include-html="./assets/templates/taskForm.html" class="ctn-add-task-board"
+        onclick="stopPropagation(event)"></div>
+    </div>
+  </div>
+
+  <div class="pop-up-contacts d-none" id="pop-up-task-edit-board">Task successfully edited</div>
+</body>
+
+</html>

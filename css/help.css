@@ -1,0 +1,65 @@
+.ctn-content-help {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 32px;
+}
+
+.headline-help-legal-privacy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ctn-arrow-return {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ctn-arrow-return:hover {
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+.img-arrow-return {
+    width: 28px;
+    height: 28px;
+}
+
+.img-arrow-return:hover {
+    width: 32px;
+    height: 32px;
+}
+
+.color-lb {
+    color: #29ABE2;
+}
+
+.ctn-help-steps {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    margin-bottom: 16px;
+    gap: 18px;
+}
+
+.ctn-help-single-step {
+    display: flex;
+}
+
+.help-step-number {
+    font-size: 27px;
+    font-weight: 700;
+    margin-right: 24px;
+}
+
+
+@media (max-width: 784px) {
+    .ctn-content-help {
+        padding-bottom: 112px;
+    }
+}

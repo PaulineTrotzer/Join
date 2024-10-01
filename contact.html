@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link rel="icon" type="image/x-icon" href="./assets/img/logo_dark.svg" />
+
+  <link rel="stylesheet" href="./css/font.css" />
+  <link rel="stylesheet" href="./css/contact.css" />
+  <link rel="stylesheet" href="./css/contactOverlay.css" />
+  <link rel="stylesheet" href="./css/contactResp.css" />
+  <link rel="stylesheet" href="./css/contactOverlayResp.css" />
+  <link rel="stylesheet" href="./css/template.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="script.js" defer></script>
+  <script src="./js/login.js" defer></script>
+  <script src="./js/contact.js" defer></script>
+  <script src="./js/contactDetail.js" defer></script>
+  <script src="./js/contactHTML.js" defer></script>
+  <script src="./js/template.js" defer></script>
+  <script src="./js/summary.js" defer></script>
+  <script src="./js/board.js" defer></script>
+  <script src="./js/storage.js" defer></script>
+  <script src="./js/signUp.js" defer></script>
+  <script src="colors.js" defer></script>
+</head>
+
+<body id="body-contacts" onload="initContact()" class="body-contacts">
+
+  <div class="landscape-msg">Please rotate your device to portrait mode<br> for better user experience.</div>
+
+  <header w3-include-html="./assets/templates/header.html"></header>
+  <div w3-include-html="./assets/templates/submenu.html"></div>
+  <div id="sidebar" class="sidebar" w3-include-html="./assets/templates/sidebarFooter.html"></div>
+
+  <div class="bg-contact-list" id="bg-contact-list">
+    <div id="wrapper-contact-list" class="wrapper-contact-list">
+      <div class="ctn-btn-contact-list">
+        <div class="btn-db btn-add-contact-db" onclick="openAddContactOverlay()">
+          <span>Add new contact</span>
+          <img class="icon-btn" src="./assets/img/person_add_white.svg" />
+        </div>
+      </div>
+      <div class="btn-contact-mobile" onclick="openAddContactOverlay()">
+        <img src="./assets/img/person_add_white.svg" />
+      </div>
+      <div class="ctn-contact-list" id="ctn-contact-list"></div>
+    </div>
+  </div>
+
+  <div class="ctn-content ctn-content-contacts" id="ctn-content-contacts">
+    <div class="contact-arrow-return d-none" id="contact-arrow-return" onclick="returnToContactList()">
+      <img src="./assets/img/arrow-left-line.svg" />
+    </div>
+    <div class="ctn-contacts-details">
+      <div class="headline-contacts">
+        <h1>Contacts</h1>
+        <div class="headline-separator"></div>
+        <span>Better with a team</span>
+      </div>
+      <div class="wrapper-contact-details d-none" id="wrapper-contact-details"></div>
+    </div>
+    <div class="btn-contact-mobile" id="btn-contact-mobile" onclick="openSubmenuContact(positionOfContact)">
+      <img src="./assets/img/more_vertical_white.svg" />
+    </div>
+  </div>
+  <div class="overlay-contacts-submenu d-none" id="overlay-contacts-submenu" onclick="closeSubmenuContact()">
+    <div class="ctn-contacts-submenu" id="ctn-contacts-submenu" onclick="stopPropagation(event)"></div>
+  </div>
+
+  <div class="overlay-contacts d-none" id="overlay-contacts" onclick="closeContactsDetails()"></div>
+
+  <div class="pop-up-contacts d-none" id="pop-up-contacts-add">Contact successfully created</div>
+  <div class="pop-up-contacts d-none" id="pop-up-contacts-edit">Contact successfully edited</div>
+  <div class="pop-up-contacts d-none" id="pop-up-contacts-delete">Contact successfully deleted</div>
+
+  <div id="confirmationModal" class="modal d-none">
+    <div class="modal-content">
+      <p>Are you sure you want to delete this contact?</p>
+      <button id="confirmDelete">Yes</button>
+      <button id="cancelDelete">No</button>
+    </div>
+  </div>
+  </div>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+[
+  {
+    "ID": 0,
+    "name": "Guest",
+    "acronym": "G",
+    "email": "guest@account",
+    "password": "joinGuest2024",
+    "confirmedPassword": "joinGuest2024",
+    "firstName": "Guest",
+    "lastName": "Guest",
+    "iconColor": "",
+    "assignedTasks": [
+      {
+        "idTask": "task-1"
+      },
+      {
+        "idTask": "task-2"
+      },
+      {
+        "idTaksk": "task-3"
+      }
+    ]
+  }
+]

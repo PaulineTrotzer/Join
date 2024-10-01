@@ -1,0 +1,368 @@
+.overlay-board {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  background-color: #00000025;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ctn-task-detail {
+  width: 525px;
+  max-height: 85%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  font-size: 20px;
+  padding: 48px 40px;
+  border-radius: 30px;
+  gap: 24px;
+  overflow-y: auto;
+  transition: 100ms;
+}
+
+.ctn-task-detail::-webkit-scrollbar-track {
+  margin-block: 24px;
+}
+
+.ctn-task-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-detail-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0038ff;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+  padding: 4px 24px;
+  border-radius: 8px;
+}
+
+.task-detail-close {
+  width: 13.15px;
+  height: 13.15px;
+}
+
+.ctn-task-detail-close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.ctn-task-detail-close:hover {
+  cursor: pointer;
+  background-color: #eeeeee;
+}
+.ctn-task-detail-date,
+.ctn-task-detail-priority {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.ctn-task-detail-date span,
+.ctn-task-detail-priority span {
+  width: 128px;
+}
+
+.ctn-task-detail-priority-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.img-prio-task-detail {
+  width: 17px;
+}
+
+.ctn-task-detail-assigned-users {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ctn-task-detail-assigned-users-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ctn-task-detail-single-assigned-user {
+  display: flex;
+  align-items: center;
+  padding: 7px 16px;
+  border-radius: 10px;
+  gap: 16px;
+}
+
+.task-detail-assigned-user-acronym {
+  height: 42px;
+  width: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  background-color: #1fd7c1;
+  color: white;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+
+.task-detail-assigned-user-name {
+  font-family: "Open Sans", sans-serif;
+  font-size: 19px;
+}
+
+.ctn-task-detail-subtasks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ctn-task-detail-single-subtask {
+  display: flex;
+  align-items: center;
+  padding: 6px 16px;
+  gap: 16px;
+  border-radius: 8px;
+}
+
+.ctn-task-detail-single-subtask:hover {
+  background-color: #eeeeee;
+  cursor: pointer;
+  padding: 6px 18px;
+}
+
+.task-detail-checkbox {
+  width: 24px;
+  height: 24px;
+}
+
+.ctn-task-detail-edit-delete {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.ctn-task-detail-edit-delete-single {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  gap: 8px;
+}
+
+.ctn-task-detail-edit-delete-single:hover {
+  cursor: pointer;
+  color: #29abe2;
+  font-weight: bold;
+}
+
+.ctn-task-detail-edit-delete-single img {
+  height: 18px;
+}
+
+.ctn-task-detail-edit-delete-single span {
+  width: 48px;
+}
+
+.task-detail-separator-edit {
+  height: 24px;
+  border: 1px solid #d1d1d1;
+}
+
+.wrapper-add-task-board {
+  max-height: 85%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/*** EDIT TASK BOARD ***/
+
+.form-edit-task-board {
+  display: flex;
+  flex-direction: column;
+}
+
+.ctn-edit-task-board-header {
+  justify-content: flex-end !important;
+}
+
+.edit-task-subtitle {
+  margin-bottom: 6px;
+  color: #2a3647;
+}
+
+.form-edit-task-board input {
+  width: unset;
+}
+
+.form-edit-task-board textarea {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  border-radius: 8px;
+  border: solid 1px #d1d1d1;
+  padding: 12px 16px;
+  margin-bottom: 32px;
+  resize: vertical;
+}
+
+.form-edit-task-board textarea:active,
+.form-edit-task-board textarea:focus {
+  border: solid 1px #29abe2;
+  outline: none;
+}
+
+.ctn-edit-task-prio-btn {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.ctn-edit-task-assigned-users {
+  margin-bottom: 32px;
+}
+
+.ctn-edit-task-select-users {
+  padding: 12px 16px;
+  padding-left: 0;
+  border-radius: 8px;
+  border: solid 1px #d1d1d1;
+}
+
+.ctn-edit-task-select-users:hover {
+  box-shadow: 0px 0px 4px 0px #0000002f;
+}
+
+.ctn-edit-task-img-drop-down {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.ctn-edit-task-img-drop-down:hover {
+  background-color: #eeeeee;
+  cursor: pointer;
+}
+
+.ctn-edit-task-drop-down-user {
+  max-height: 216px;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+  overflow-y: auto;
+}
+
+.edit-task-placeholder-drop-down {
+  padding-left: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ctn-edit-task-search-user {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ctn-edit-task-search-user input,
+.ctn-edit-form-input-subtask input,
+.ctn-edit-task-assigned-users input {
+  border: none;
+  height: unset;
+  margin-bottom: 0;
+}
+
+.edit-task-search-user {
+  flex: 1;
+ }
+
+.ctn-edit-form-input-subtask input, .subtask-list-edit-mode input {
+  flex: 1;
+}
+
+.form-edit-task-board input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+  margin: unset !important;
+}
+
+.ctn-edit-task-bar-assigned-user {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+.ctn-checked-contacts-edit {
+  width: unset !important;
+}
+
+.ctn-edit-form-input-subtask-btn {
+  margin-right: 8px;
+}
+
+.ctn-edit-form-input-subtask {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-radius: 8px;
+  border: solid 1px #d1d1d1;
+}
+
+.ctn-edit-form-input-subtask-reset-add {
+  display: flex;
+  gap: 4px;
+  margin-right: 8px;
+}
+
+.ctn-edit-task-added-subtask div {
+  width: unset;
+}
+
+.btn-edit-confirm {
+  align-self: flex-end;
+  max-width: 88px;
+  height: unset;
+  margin-top: 20px;
+  padding: 14px 8px !important;
+}
+
+/*** ADD TASK BOARD ***/
+
+.ctn-add-task-board {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-add-task-board {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+.ctn-add-task-board-input-section {
+  display: flex;
+  gap: 32px;
+}
