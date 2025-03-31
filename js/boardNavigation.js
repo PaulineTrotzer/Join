@@ -5,19 +5,19 @@ let idOfCurrentDraggedElement;
 let statusOfCurrentDraggedElement;
 let matchingStatusTask = [
     {
-        "statusTask": 'toDo', 
+        "statusTask": 'toDo',
         "statusTaskName": 'To Do',
-    }, 
+    },
     {
-        "statusTask": 'inProgress', 
+        "statusTask": 'inProgress',
         "statusTaskName": 'In Progress',
-    }, 
+    },
     {
-        "statusTask": 'awaitFeedback', 
+        "statusTask": 'awaitFeedback',
         "statusTaskName": 'Await Feedback',
-    }, 
+    },
     {
-        "statusTask": 'done', 
+        "statusTask": 'done',
         "statusTaskName": 'Done',
     }
 ]
@@ -76,7 +76,7 @@ function closeSubmenuChangeStatusMobile() {
 function moveElement(idTask) {
     currentIdTask = idTask;
     currentDraggedElement = document.getElementById(`card-task-small-${idTask}`);
-    
+
     currentDraggedElement.style.transform = 'rotate(5deg)';
 }
 
@@ -130,15 +130,17 @@ function checkStatusofCurrentDraggedElement() {
  * @param {string} newStatus - status of the task after moving it 
  */
 async function moveElementTo(newStatus) {
-    positionOfTask = tasks.findIndex(id => id['idTask'] == currentIdTask);
-
+    let positionOfTask = tasks.findIndex(task => task['idTask'] === currentIdTask);
     tasks[positionOfTask]['statusTask'] = newStatus;
+    if (newStatus !== "done") {
+        tasks = tasks.filter(task => task.idTask !== currentIdTask || task.statusTask === newStatus);
+    }
     await saveTasks();
-    renderBoard(tasks);
-
+    await renderBoard(tasks);
     hidePreview(newStatus);
     document.getElementById('overlay-board-submenu').classList.add('d-none');
 }
+
 
 
 /**
@@ -166,7 +168,7 @@ async function searchTask() {
 
         if (title.includes(searchInput) || description.includes(searchInput)) {
             includedTasks.push(tasks[p]);
-        } 
+        }
     }
 
     if (includedTasks.length > 0) {
@@ -176,5 +178,5 @@ async function searchTask() {
     } else {
         document.getElementById('ctn-board').classList.add('d-none');
         document.getElementById('board-no-results').classList.remove('d-none');
-    } 
+    }
 }

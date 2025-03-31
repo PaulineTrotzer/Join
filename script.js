@@ -81,8 +81,10 @@ async function loadContacts() {
   const contactsData = response['data']['value'];
   if (contactsData) {
     contacts = JSON.parse(contactsData);
+    contactsSorted = [...contacts]; 
   }
 }
+
 
 
 /**

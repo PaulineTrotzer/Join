@@ -16,7 +16,7 @@ async function generateCurrentUserDropDownHTML(currentUser) {
         <input class="dropdwon-checkbox" id="checkbox-contact-${currentUser.ID}" type="checkbox" onclick="handleCheckboxClick(this)">
     </div>
     `
-} 
+}
 
 
 /**
@@ -26,17 +26,21 @@ async function generateCurrentUserDropDownHTML(currentUser) {
  * @returns - HTML-Code for a single element/ user in the dropdown menu for assigning users to a task (add task form)
  */
 async function generateContactDropDownHTML(contact) {
+    let displayName = contact.name;
+    if (contact.ID === currentUserAsContact.ID) {
+        displayName += " (You)";
+    }
     return /*html*/ ` 
-    <div class="contact" onclick="handleCheckboxClick(this)">
-        <div class="contact-circle-and-name-box">
-            <div style="background-color:${contact.colorContact}" class="task-detail-assigned-user-acronym">
-                <span>${contact.acronymContact}</span> 
-            </div>
-            <span>${contact.name}</span> 
-        </div>
-        <input class="dropdwon-checkbox" id="checkbox-contact-${contact.ID}" type="checkbox" onclick="handleCheckboxClick(this)">
-    </div>`
-} 
+      <div class="contact" onclick="handleCheckboxClick(this)">
+          <div class="contact-circle-and-name-box">
+              <div style="background-color:${contact.colorContact}" class="task-detail-assigned-user-acronym">
+                  <span>${contact.acronymContact}</span> 
+              </div>
+              <span>${displayName}</span> 
+          </div>
+          <input class="dropdwon-checkbox" id="checkbox-contact-${contact.ID}" type="checkbox" onclick="handleCheckboxClick(this)">
+      </div>`;
+}
 
 
 /**
@@ -47,12 +51,12 @@ async function generateContactDropDownHTML(contact) {
 function handleContactDivClick(contactDiv) {
     const checkbox = contactDiv.querySelector(".dropdwon-checkbox");
     if (checkbox) {
-      checkbox.checked = !checkbox.checked; // Toggle checkbox state
-      handleCheckboxClick(checkbox); // Call handleCheckboxClick function
+        checkbox.checked = !checkbox.checked;
+        handleCheckboxClick(checkbox);
     }
-  }
-  
-  
+}
+
+
 
 /**
  * This function returns the HTML-Code for the icon of an assigned user in the edit/ add task form
@@ -68,7 +72,7 @@ async function generateIconCheckedContactHTML(foundContact) {
         </div>
     </div>
     `
-} 
+}
 
 
 /**
@@ -78,7 +82,7 @@ async function generateIconCheckedContactHTML(foundContact) {
  * @returns - HTML-Code for the element of the current user in the dropdown menu for assigning users to a task (edit task view)
  */
 async function generateCurrentUserDropDownEditTaskHTML(positionContact) {
-    
+
     return /*html*/ `
     <div class="contact" onclick="handleCheckboxClick(this)">
         <div class="contact-circle-and-name-box">

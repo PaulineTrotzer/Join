@@ -57,6 +57,7 @@ async function setInputValuesFromBoard(input) {
  * @param {object} input - array with the input/ values from the local storage
  */
 async function setAssignedUsersTransfer(input) {
+    console.log('ja');
 for (let i = 0; i < input.assignedContacts.length; i++) {
     let idContact = input.assignedContacts[i]["idContact"];
     let positionContact = contactsSorted.findIndex((id) => id["ID"] == idContact);

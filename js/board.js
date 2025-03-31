@@ -6,16 +6,28 @@ let positionOfTask;
 
 async function initBoard() {
   await includeHTML();
-  await loadUserData();
+  await loadAllContacts();
   await getLoggedInEmail();
   await proofAuthentification(loggedInEmail);
   await checkPersonalheader(loggedInEmail);
-  await loadContacts();
   await loadTasks();
   await checkIfGuestOrCurrentUser();
   await sortArrayContacts();
+  tasks = tasks.filter((task, index, self) =>
+    index === self.findIndex((t) => t.idTask === task.idTask)
+  );
   await renderBoard(tasks);
   changeSelectedTab("tab-board");
+}
+
+
+/**
+ * This function loads all the contacts (dummies and userData)
+ */
+async function loadAllContacts() {
+  await loadContacts();
+  await loadUserData();
+  contactsSorted = contacts.slice().sort((a, b) => a.name.localeCompare(b.name));
 }
 
 
@@ -41,7 +53,7 @@ async function storeDummyTasks() {
  * This functions saves the tasks in the backend
  */
 async function saveTasks() {
-  await setItem("tasks", JSON.stringify(tasks));
+  const response = await setItem("tasks", JSON.stringify(tasks));
 }
 
 
@@ -62,11 +74,15 @@ async function loadTasks() {
  * @param {array} currentTasks - array of tasks currently selected
  */
 async function renderBoard(currentTasks) {
+  statusTask.forEach(status => {
+    const tasksForStatus = currentTasks.filter(t => t.statusTask === status).map(t => t.idTask);
+    document.getElementById(`tasks-${status}`).innerHTML = ``;
+  });
   for (let i = 0; i < statusTask.length; i++) {
-    document.getElementById(`tasks-${statusTask[i]}`).innerHTML = ``;
     await updateStatus(statusTask[i], currentTasks);
   }
 }
+
 
 
 /**
@@ -78,21 +94,31 @@ async function renderBoard(currentTasks) {
  * @param {array} currentTasks - array of tasks currently selected
  */
 async function updateStatus(status, currentTasks) {
-  let selectedTasks = currentTasks.filter((t) => t["statusTask"] == status);
-
-  if (selectedTasks.length == 0) {
+  let selectedTasks = currentTasks.filter(t => t["statusTask"] === status);
+  if (selectedTasks.length === 0) {
     document.getElementById(`empty-tasks-${status}`).classList.remove("d-none");
   } else {
     document.getElementById(`empty-tasks-${status}`).classList.add("d-none");
+    if (status === "done") {
+      selectedTasks.sort((a, b) => {
+        let diffA = Math.abs(new Date(a.dueDate) - new Date());
+        let diffB = Math.abs(new Date(b.dueDate) - new Date());
+        return diffA - diffB;
+      });
+      selectedTasks = selectedTasks.slice(0, 1);
+    }
+    document.getElementById(`tasks-${status}`).innerHTML = ``;
     for (let j = 0; j < selectedTasks.length; j++) {
       let currentIdTask = selectedTasks[j]["idTask"];
-      positionOfTask = currentTasks.findIndex((id) => id["idTask"] == currentIdTask);
-
-      document.getElementById(`tasks-${status}`).innerHTML += await generateCardSmallHTML(currentTasks ,positionOfTask ,currentIdTask);
+      positionOfTask = currentTasks.findIndex(t => t["idTask"] === currentIdTask);
+      const cardHTML = await generateCardSmallHTML(currentTasks, positionOfTask, currentIdTask);
+      document.getElementById(`tasks-${status}`).insertAdjacentHTML('afterbegin', cardHTML);
       await createDynamicElementsCardSmall(currentTasks, positionOfTask, currentIdTask);
     }
   }
 }
+
+
 
 
 /**
@@ -212,12 +238,16 @@ async function checkAssignedContactsCardSmall(currentTasks, positionOfTask, curr
  */
 async function getAssignedContactsCardSmall(currentTasks, positionOfTask, currentIdTask, u) {
   let idContact = currentTasks[positionOfTask]["assignedContacts"][u]["idContact"];
-  let positionContact = contacts.findIndex((id) => id["ID"] == idContact);
-
+  const numericIdContact = Number(idContact);
+  let positionContact = contacts.findIndex((contact) => contact["ID"] === numericIdContact);
+  if (positionContact === -1) {
+    return;
+  }
   document.getElementById(`ctn-card-assigned-users-small-${currentIdTask}`).innerHTML += await generateContactIconCardSmallHTML(currentIdTask, idContact);
   document.getElementById(`card-assigned-user-small-${currentIdTask}-${idContact}`).innerHTML = await contacts[positionContact]["acronymContact"];
   document.getElementById(`card-assigned-user-small-${currentIdTask}-${idContact}`).style.backgroundColor = await contacts[positionContact]["colorContact"];
 }
+
 
 
 /**
@@ -244,11 +274,11 @@ function getSelectedPriority(idImgElement, currentTasks, positionOfTask) {
   let priorityOfTask = currentTasks[positionOfTask]["priority"];
 
   if (priorityOfTask == "Urgent") {
-    document.getElementById(idImgElement).src ="./assets/img/prio_urgent_color.svg";
+    document.getElementById(idImgElement).src = "./assets/img/prio_urgent_color.svg";
   } else if (priorityOfTask == "Medium") {
-    document.getElementById(idImgElement).src ="./assets/img/prio_medium_color.svg";
+    document.getElementById(idImgElement).src = "./assets/img/prio_medium_color.svg";
   } else if (priorityOfTask == "Low") {
-    document.getElementById(idImgElement).src ="./assets/img/prio_low_color.svg";
+    document.getElementById(idImgElement).src = "./assets/img/prio_low_color.svg";
   }
 }
 
@@ -276,7 +306,7 @@ async function getSelectedSubtasks(idOfElement, currentTasks, positionOfTask) {
       if (currentTasks[positionOfTask]["subtasks"][k]["statusSubtask"] == "closed") {
         document.getElementById(idOfElement).innerHTML += await generateSubtasksDetailClosedHTML(currentId, idOfSubtask, titleOfSubtask);
       } else if (currentTasks[positionOfTask]["subtasks"][k]["statusSubtask"] == "open") {
-        document.getElementById(idOfElement).innerHTML +=await generateSubtasksOpenDetailHTML(currentId, idOfSubtask, titleOfSubtask);
+        document.getElementById(idOfElement).innerHTML += await generateSubtasksOpenDetailHTML(currentId, idOfSubtask, titleOfSubtask);
       }
     }
   }

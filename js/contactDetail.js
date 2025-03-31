@@ -45,14 +45,23 @@ async function openContactDetailCurrentUser(positionOfContact) {
  * The function also hides the details of the previous contact (essential for the correct display of the slide-in animation of the following contact)
  */
 async function resetPreviousSelectedContact(ID) {
-  for (i = 0; i < contactsSorted.length - 1; i++) {
-    ID = contactsSorted[i]["ID"];
-    document.getElementById(`${ID}`).style = `pointer-events: auto`;
-    document.getElementById(`${ID}`).style.backgroundColor = "white";
-    document.getElementById(`${ID}`).style.color = "black";
+  for (let i = 0; i < contactsSorted.length - 1; i++) {
+    let currentID = contactsSorted[i]["ID"];
+    let elem = document.getElementById(`${currentID}`);
+    if (elem) {
+      elem.style.pointerEvents = "auto";
+      elem.style.backgroundColor = "white";
+      elem.style.color = "black";
+    } else {
+      return
+    }
   }
-  document.getElementById("wrapper-contact-details").classList.add("d-none");
+  let wrapper = document.getElementById("wrapper-contact-details");
+  if (wrapper) {
+    wrapper.classList.add("d-none");
+  } 
 }
+
 
 
 /**
@@ -61,10 +70,15 @@ async function resetPreviousSelectedContact(ID) {
  * @param {string} ID - id of the contact for which the details are displayed
  */
 function markSelectedContact(ID) {
-  document.getElementById(`${ID}`).style = `pointer-events: none`;
-  document.getElementById(`${ID}`).style.backgroundColor = "#2A3647";
-  document.getElementById(`${ID}`).style.color = "white";
+  let elem = document.getElementById(ID);
+  if (!elem) {
+    return;
+  }
+  elem.style.pointerEvents = "none";
+  elem.style.backgroundColor = "#2A3647";
+  elem.style.color = "white";
 }
+
 
 
 /**
@@ -233,18 +247,22 @@ async function deleteContact(positionOfContact) {
       return;
     }
     await removeContactFromTasks(positionOfContact);
-    let updatedContactsSorted = await spliceContacts(positionOfContact);
-    await setItem('contacts', JSON.stringify(updatedContactsSorted));
+    contactsSorted = await spliceContacts(positionOfContact);
+    console.log("contactsSorted nach Löschen:", contactsSorted.map(c => c.name));
+    await setItem('contacts', JSON.stringify(contactsSorted));
+    // Flag zurücksetzen:
+    contactsRendered = false;
     checkWindowWidth();
     await clearContactWrapper();
     await returnToContactList();
-
+  
     closeSubmenuContact();
     closeContactsDetails();
     slideInAnimation('pop-up-contacts-delete', 'translate-y', true);
     isConfirmationDisplayed = false;
   }
 }
+
 
 
 async function askingforCommitment() {

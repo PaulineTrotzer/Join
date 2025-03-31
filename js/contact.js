@@ -249,16 +249,20 @@ async function renderCurrentUserAsContact() {
  */
 async function sortArrayContacts() {
   contactsSorted = [...contacts].sort((a, b) => {
-
-    if (a === currentUserAsContact) return -1;
-    if (b === currentUserAsContact) return 1;
-
+    if (a.ID === currentUserAsContact.ID) {
+      return -1;
+    }
+    if (b.ID === currentUserAsContact.ID) {
+      return 1;
+    }
     const nameA = a.name || '';
     const nameB = b.name || '';
-    return nameA.localeCompare(nameB);
+    const result = nameA.localeCompare(nameB);
+    return result;
   });
   await createArrayInitialLetters();
 }
+
 
 
 /**

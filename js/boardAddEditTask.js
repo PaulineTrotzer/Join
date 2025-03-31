@@ -191,7 +191,7 @@ async function openEditTask(idTask) {
    */
   function openAddTaskBoard(taskStatus) {
     currentStatus = taskStatus;
-    document.getElementById('body-board').setAttribute("onresize", `checkWindowWidthAddTaskBoard()`)
+    document.getElementById('body-board').setAttribute("onresize", `checkWindowWidthAddTaskBoard()`);
     if (window.innerWidth < 785) {
       window.location.href = 'add_task.html';
       localStorage.setItem('statusTransfer', taskStatus);
@@ -203,8 +203,13 @@ async function openEditTask(idTask) {
       document.getElementById('Add-Task-Form').setAttribute("onsubmit", `submitTask('${taskStatus}'); return false;`);
       document.getElementById('wrapper-add-task-board').addEventListener('click', clickOutsideHandler);
       document.getElementById('Add-Task-Form').addEventListener('click', clickOutsideHandler);
+      contactsRendered = false; 
+      loadAllContacts().then(() => {
+        renderContacts();
+      });
     }
   }
+  
 
 
   /**
@@ -256,4 +261,6 @@ async function openEditTask(idTask) {
     document.getElementById('wrapper-add-task-board').removeEventListener('click', clickOutsideHandler);
     document.getElementById('Add-Task-Form').removeEventListener('click', clickOutsideHandler);
     document.getElementById('body-board').removeAttribute("onresize");
+    contactsRendered = false;
+
   }

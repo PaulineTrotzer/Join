@@ -101,7 +101,6 @@ function checkIfRememberedData() {
 async function login() {
     let emailInput = document.getElementById('email');
     let convertedEmail = emailInput.value.toLowerCase();
-
     let passwordInput = document.getElementById('password');
     let currentUser = users.find(u => u.email.toLowerCase() == convertedEmail && u.password == passwordInput.value);
     if (currentUser) {
@@ -124,9 +123,7 @@ function disableLogInButton() {
     let emailInput = document.getElementById('email');
     let passwordInput = document.getElementById('password');
     const LogInButton = document.getElementById('LogInButton');
-
     const allFieldsFilled = emailInput.value && passwordInput.value;
-
     if (allFieldsFilled) {
         LogInButton.removeAttribute('disabled');
         LogInButton.classList.remove('if-button-disabled');
@@ -157,6 +154,7 @@ function checkStatusofCheckBox() {
  * The useGuestLogIn function sets the values of the email and password fields to predefined guest login information and saves the email address as loggedInEmail for later processing. The user is redirected to the summary page.
  */
 async function useGuestLogIn() {
+    clearLogIn();
     document.getElementById('email').value = 'guest@account';
     document.getElementById('password').value = 'joinGuest2024';
 
