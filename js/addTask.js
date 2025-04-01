@@ -206,12 +206,14 @@ async function renderOtherContacts() {
   const existingContactNames = Array.from(
     document.querySelectorAll("#assignedContactsCtn .contact span:nth-child(2)")
   ).map(span => span.innerText.trim());
+  
   let validContacts = contactsSorted.filter(contact => !contact.deleted);
   validContacts.sort((a, b) => {
-    if (a.ID === currentUserAsContact.ID) {
+    if (!a || !b) return 0;
+    if (currentUserAsContact && a.ID === currentUserAsContact.ID) {
       return -1;
     }
-    if (b.ID === currentUserAsContact.ID) {
+    if (currentUserAsContact && b.ID === currentUserAsContact.ID) {
       return 1;
     }
     return a.name.localeCompare(b.name);
@@ -219,6 +221,10 @@ async function renderOtherContacts() {
   assignedContacts.innerHTML = ""; 
   for (let i = 0; i < validContacts.length; i++) {
     const contact = validContacts[i];
+    if (!contact) {
+      console.warn(`Kontakt an Index ${i} ist undefiniert.`);
+      continue;
+    }
     const contactExists = existingContactNames.includes(contact.name);
     if (!contactExists) {
       const html = await generateContactDropDownHTML(contact);

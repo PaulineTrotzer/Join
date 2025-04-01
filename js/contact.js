@@ -248,20 +248,24 @@ async function renderCurrentUserAsContact() {
  *
  */
 async function sortArrayContacts() {
-  contactsSorted = [...contacts].sort((a, b) => {
-    if (a.ID === currentUserAsContact.ID) {
-      return -1;
-    }
-    if (b.ID === currentUserAsContact.ID) {
-      return 1;
-    }
-    const nameA = a.name || '';
-    const nameB = b.name || '';
-    const result = nameA.localeCompare(nameB);
-    return result;
-  });
+  if (!currentUserAsContact || !currentUserAsContact.ID) {
+    contactsSorted = [...contacts].sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+  } else {
+    contactsSorted = [...contacts].sort((a, b) => {
+      if (a && a.ID === currentUserAsContact.ID) {
+        return -1;
+      }
+      if (b && b.ID === currentUserAsContact.ID) {
+        return 1;
+      }
+      const nameA = a && a.name ? a.name : '';
+      const nameB = b && b.name ? b.name : '';
+      return nameA.localeCompare(nameB);
+    });
+  }
   await createArrayInitialLetters();
 }
+
 
 
 

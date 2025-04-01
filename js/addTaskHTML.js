@@ -26,21 +26,27 @@ async function generateCurrentUserDropDownHTML(currentUser) {
  * @returns - HTML-Code for a single element/ user in the dropdown menu for assigning users to a task (add task form)
  */
 async function generateContactDropDownHTML(contact) {
-    let displayName = contact.name;
-    if (contact.ID === currentUserAsContact.ID) {
-        displayName += " (You)";
+    if (!contact) {
+      console.error("generateContactDropDownHTML wurde ohne gültigen Kontakt aufgerufen");
+      return "";
+    }
+    const currentID = currentUserAsContact && currentUserAsContact.ID ? currentUserAsContact.ID : null;
+    let displayName = contact.name || "Unbekannt";
+    if (currentID && contact.ID === currentID) {
+      displayName += " (You)";
     }
     return /*html*/ ` 
       <div class="contact" onclick="handleCheckboxClick(this)">
-          <div class="contact-circle-and-name-box">
-              <div style="background-color:${contact.colorContact}" class="task-detail-assigned-user-acronym">
-                  <span>${contact.acronymContact}</span> 
-              </div>
-              <span>${displayName}</span> 
+        <div class="contact-circle-and-name-box">
+          <div style="background-color:${contact.colorContact || "#ccc"}" class="task-detail-assigned-user-acronym">
+            <span>${contact.acronymContact || ""}</span> 
           </div>
-          <input class="dropdwon-checkbox" id="checkbox-contact-${contact.ID}" type="checkbox" onclick="handleCheckboxClick(this)">
+          <span>${displayName}</span> 
+        </div>
+        <input class="dropdwon-checkbox" id="checkbox-contact-${contact.ID}" type="checkbox" onclick="handleCheckboxClick(this)">
       </div>`;
-}
+  }
+  
 
 
 /**

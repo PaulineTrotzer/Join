@@ -154,17 +154,36 @@ function checkStatusofCheckBox() {
  * The useGuestLogIn function sets the values of the email and password fields to predefined guest login information and saves the email address as loggedInEmail for later processing. The user is redirected to the summary page.
  */
 async function useGuestLogIn() {
-    clearLogIn();
     document.getElementById('email').value = 'guest@account';
     document.getElementById('password').value = 'joinGuest2024';
-
-    const guestUser = users.find(user => user.email === 'guest@account');
+    const guestUser = users.find(user => user.email.toLowerCase() === 'guest@account');
     if (guestUser) {
+        // Füge den Guest als Kontakt hinzu, falls er noch nicht existiert
+        if (!contactsSorted.some(contact => contact.name.toLowerCase() === "guest")) {
+            const guestContact = {
+                ID: 0, // Eindeutige ID für den Gast
+                name: "Guest",
+                firstName: "Guest",
+                lastName: "",
+                acronymContact: "G", // oder ein anderes Symbol
+                colorContact: "#ccc" // Standardfarbe
+                // Weitere Eigenschaften, falls nötig
+            };
+            contactsSorted.push(guestContact);
+            contactsSorted.sort((a, b) => a.name.localeCompare(b.name));
+            console.log("Guest-Kontakt hinzugefügt. contactsSorted (sortiert):", contactsSorted.map(c => c.name));
+        }
+        // Setze die eingeloggte Email
+        let loggedInEmail = guestUser.email;
         await setItem('loggedInEmail', loggedInEmail);
         window.location.href = './summary.html';
+        clearLogIn();
+    } else {
+        console.error("Guest user nicht gefunden.");
     }
-    clearLogIn();
 }
+
+
 
 
 /**

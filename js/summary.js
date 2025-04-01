@@ -294,17 +294,21 @@ async function checkExistingTasksForPriority(currentPriority) {
  * @returns - formatted date of the closest upcoming task for the selected priority
  */
 async function getClosestDate(tasksCurrentPriority) {
-    let closestDate = tasksCurrentPriority[0]['dueDate'];
-    for (d = 1; d < tasksCurrentPriority.length; d++) {
-        let dateCurrentTask = tasksCurrentPriority[d]['dueDate'];
-        if (dateCurrentTask < closestDate) {
-            closestDate = dateCurrentTask;
-        }
+    let today = new Date();
+    let upcomingTasks = tasksCurrentPriority.filter(task => new Date(task.dueDate) >= today);
+    if (upcomingTasks.length === 0) {
+      upcomingTasks = tasksCurrentPriority;
     }
-
-    formattedClosestDate = new Date(closestDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-    return formattedClosestDate;
-}
+    let closestDate = upcomingTasks[0]['dueDate'];
+    for (let d = 1; d < upcomingTasks.length; d++) {
+      let dateCurrentTask = upcomingTasks[d]['dueDate'];
+      if (new Date(dateCurrentTask) < new Date(closestDate)) {
+        closestDate = dateCurrentTask;
+      }
+    }
+    return new Date(closestDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  }
+  
 
 
 /**
